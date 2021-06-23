@@ -1,5 +1,5 @@
 plugins {
-    id("app")
+   androidApp
 }
 
 dependencies {

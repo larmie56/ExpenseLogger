@@ -1,30 +1,43 @@
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.PluginContainer
+import org.gradle.plugin.use.PluginDependenciesSpec
+import org.gradle.plugin.use.PluginDependencySpec
 
-val PluginContainer.androidApplication: Unit
+internal val PluginContainer.androidApplication: Unit
     get() {
         apply("com.android.application")
     }
 
-val PluginContainer.androidLibrary: Unit
+internal val PluginContainer.androidLibrary: Unit
     get() {
         apply("com.android.library")
     }
 
-val PluginContainer.kotlinAndroid: Unit
+internal val PluginContainer.kotlinAndroid: Unit
     get() {
         apply("kotlin-android")
     }
 
-val PluginContainer.kotlinKapt: Unit
+internal val PluginContainer.kotlinKapt: Unit
     get() {
         apply("kotlin-kapt")
     }
 
-fun DependencyHandler.implementation(dependency: String) {
-    add("implementation", dependency)
+val PluginDependenciesSpec.androidApp: PluginDependencySpec
+    get() = id("app")
+
+val PluginDependenciesSpec.androidLib: PluginDependencySpec
+    get() = id("androidLibrary")
+
+fun DependencyHandler.implementation(dependency: String) = add(
+    "implementation", dependency
+)
+
+fun DependencyHandler.implementation(vararg dependencies: String) {
+    dependencies.forEach(::implementation)
 }
+
 fun DependencyHandler.testImplementation(dependency: String) {
     add("testImplementation", dependency)
 }
