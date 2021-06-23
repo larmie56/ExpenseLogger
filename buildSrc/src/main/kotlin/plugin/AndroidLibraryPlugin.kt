@@ -6,7 +6,9 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
-class LibraryPlugin : Plugin<Project> {
+import androidLibrary
+
+class AndroidLibraryPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         applyPlugins(project)
@@ -18,7 +20,7 @@ class LibraryPlugin : Plugin<Project> {
 
     private fun applyPlugins(project: Project) {
         project.plugins.apply {
-            apply("com.android.library")
+            androidLibrary
         }
     }
 
@@ -26,11 +28,11 @@ class LibraryPlugin : Plugin<Project> {
         val extension = project.extensions.getByName("android")
                 as? LibraryExtension ?: return
         extension.apply {
-            compileSdkVersion(AppConfig.compileSdkVersion)
+            compileSdk = AppConfig.compileSdkVersion
 
             defaultConfig {
-                targetSdkVersion(AppConfig.targetSdkVersion)
-                minSdkVersion(AppConfig.minSdkVersion)
+                targetSdk = AppConfig.targetSdkVersion
+                minSdk = AppConfig.minSdkVersion
 
                 consumerProguardFiles("proguard-rules.pro")
             }
@@ -42,8 +44,8 @@ class LibraryPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_1_8
-                targetCompatibility = JavaVersion.VERSION_1_8
+                sourceCompatibility = JavaVersion.VERSION_11
+                targetCompatibility = JavaVersion.VERSION_11
             }
         }
     }

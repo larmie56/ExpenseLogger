@@ -11,24 +11,14 @@ gradlePlugin {
 
         register("library") {
             id = "library"
-            implementationClass = "plugin.LibraryPlugin"
-        }
-    }
-}
-
-kotlin {
-    sourceSets {
-        named("main") {
-            kotlin.apply {
-                srcDir("buildSrc/src/main/kotlin")
-            }
+            implementationClass = "plugin.AndroidLibraryPlugin"
         }
     }
 }
 
 object Plugin {
     object Version {
-        const val kotlin: String = "1.4.32"
+        const val kotlin: String = "1.5.10"
         const val androidGradle = "7.1.0-alpha02"
     }
 
@@ -45,5 +35,4 @@ dependencies {
 repositories {
     google()
     mavenCentral()
-    jcenter()
 }

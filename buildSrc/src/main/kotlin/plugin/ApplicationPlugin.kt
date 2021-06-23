@@ -6,6 +6,11 @@ import com.android.build.gradle.AppExtension
 import org.gradle.api.JavaVersion
 import org.gradle.kotlin.dsl.dependencies
 
+import implementation
+import androidApplication
+import kotlinAndroid
+import kotlinKapt
+
 class ApplicationPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         applyPlugins(project)
@@ -17,9 +22,9 @@ class ApplicationPlugin : Plugin<Project> {
 
     private fun applyPlugins(project: Project) {
         project.plugins.apply {
-            apply("com.android.application")
-            apply("kotlin-android")
-            apply("kotlin-kapt")
+            androidApplication
+            kotlinAndroid
+            kotlinKapt
         }
     }
 
@@ -35,8 +40,8 @@ class ApplicationPlugin : Plugin<Project> {
                 versionCode(AppConfig.versionCode)
                 versionName(AppConfig.versionName)
 
-                targetSdkVersion(AppConfig.targetSdkVersion)
-                minSdkVersion(AppConfig.minSdkVersion)
+                targetSdk = AppConfig.targetSdkVersion
+                minSdk = AppConfig.minSdkVersion
 
                 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
@@ -57,8 +62,8 @@ class ApplicationPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_1_8
-                targetCompatibility = JavaVersion.VERSION_1_8
+                sourceCompatibility = JavaVersion.VERSION_11
+                targetCompatibility = JavaVersion.VERSION_11
             }
         }
 
@@ -66,12 +71,10 @@ class ApplicationPlugin : Plugin<Project> {
 
     private fun importExternalLibs(project: Project) {
         project.dependencies {
-            add("implementation", Library.coreKtx)
-            add("implementation", Library.appCompat)
-            add("implementation", Library.material)
-            add("testImplementation", Library.junit)
-            add("androidTestImplementation", Library.androidxJUnit)
-            add("androidTestImplementation", Library.espresso)
+            implementation(Library.coreKtx)
+            implementation(Library.appCompat)
+            implementation(Library.material)
+
             // Other external library dependencies
         }
     }
