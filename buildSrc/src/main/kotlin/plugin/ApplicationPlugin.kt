@@ -3,8 +3,10 @@ package plugin
 import Library
 import androidApplication
 import implementation
+import kapt
 import kotlinAndroid
 import kotlinKapt
+import daggerHilt
 
 class ApplicationPlugin : BasePlugin() {
 
@@ -13,6 +15,7 @@ class ApplicationPlugin : BasePlugin() {
             androidApplication
             kotlinAndroid
             kotlinKapt
+            daggerHilt
         }
 
     override val libraryConfig: LibraryConfig
@@ -20,8 +23,10 @@ class ApplicationPlugin : BasePlugin() {
             implementation(
                 Library.coreKtx,
                 Library.appCompat,
-                Library.material
+                Library.material,
+                Library.daggerHiltAndroid
             )
+            kapt(Library.hiltCompiler)
         }
 
     override val extensions: Array<ProjectExtensions>

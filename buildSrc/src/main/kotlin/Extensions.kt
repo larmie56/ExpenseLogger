@@ -24,6 +24,21 @@ internal val PluginContainer.kotlinKapt: Unit
         apply("kotlin-kapt")
     }
 
+internal val PluginContainer.kotlinLibrary: Unit
+    get() {
+        apply("kotlin-library")
+    }
+
+internal val PluginContainer.javaLibrary: Unit
+    get() {
+        apply("java-library")
+    }
+
+internal val PluginContainer.daggerHilt: Unit
+    get() {
+        apply("dagger.hilt.android.plugin")
+    }
+
 val PluginDependenciesSpec.androidApp: PluginDependencySpec
     get() = id("app")
 
