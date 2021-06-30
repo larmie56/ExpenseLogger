@@ -17,6 +17,7 @@ object Version {
     // Google
     const val material: String = "1.3.0"
     const val daggerHilt: String = "2.37"
+    const val androidxHilt: String = "1.0.0-alpha02"
 
     // Square
     const val retrofit: String = "2.9.0"

@@ -4,6 +4,8 @@ import implementation
 import kapt
 import androidLibrary
 import daggerHilt
+import extensions.ProjectExtension
+import extensions.AndroidLib
 
 class AndroidLibraryPlugin : BasePlugin() {
 
@@ -21,6 +23,6 @@ class AndroidLibraryPlugin : BasePlugin() {
             kapt(Library.hiltCompiler)
         }
 
-    override val extensions: Array<ProjectExtensions>
-        get() = arrayOf(ProjectExtensions.AndroidLib)
+    override val extensions: Array<ProjectExtension>
+        get() = arrayOf(ProjectExtension.AndroidLib)
 }

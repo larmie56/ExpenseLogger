@@ -16,10 +16,16 @@ object Library {
     const val viewModel: String =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
 
-    // Google
+    // Design
     const val material: String = "com.google.android.material:material:${Version.material}"
+
+    // DI
     const val daggerHiltAndroid: String = "com.google.dagger:hilt-android:${Version.daggerHilt}"
-    const val hiltCompiler: String = "com.google.dagger:hilt-android-compiler:${Version.daggerHilt}"
+    const val hiltCore: String = "com.google.dagger:hilt-core:${Version.daggerHilt}"
+    const val hiltCompiler: String = "com.google.dagger:hilt-compiler:${Version.daggerHilt}"
+    const val hiltViewModel: String =
+        "androidx.hilt:hilt-lifecycle-viewmodel:${Version.androidxHilt}"
+    const val androidxHiltCompiler: String = "androidx.hilt:hilt-compiler:${Version.androidxHilt}"
 
     // KotlinX
     const val coroutines: String =

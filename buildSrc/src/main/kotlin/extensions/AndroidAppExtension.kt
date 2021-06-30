@@ -1,22 +1,14 @@
-package plugin
+package extensions
 
 import AppConfig
 import BuildType.Companion.Debug
 import com.android.build.gradle.AppExtension
-import com.android.build.gradle.LibraryExtension
 import org.gradle.api.JavaVersion
 
-interface ProjectExtensions {
-    val name: String
-    fun configure(extension: Any)
+val ProjectExtension.Companion.AndroidApp: ProjectExtension
+    get() = AndroidAppExtension()
 
-    companion object {
-        val AndroidApp: ProjectExtensions = AndroidAppExtension()
-        val AndroidLib: ProjectExtensions = AndroidLibExtension()
-    }
-}
-
-private class AndroidAppExtension : ProjectExtensions {
+private class AndroidAppExtension : ProjectExtension {
 
     override val name: String get() = "android"
 
@@ -49,36 +41,6 @@ private class AndroidAppExtension : ProjectExtensions {
                         getDefaultProguardFile("proguard-android-optimize.txt"),
                         "proguard-rules.pro"
                     )
-                }
-            }
-
-            compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_11
-                targetCompatibility = JavaVersion.VERSION_11
-            }
-        }
-    }
-}
-
-private class AndroidLibExtension : ProjectExtensions {
-
-    override val name: String get() = "android"
-
-    override fun configure(extension: Any) {
-        if (extension !is LibraryExtension) return
-        extension.apply {
-            compileSdk = AppConfig.compileSdkVersion
-
-            defaultConfig {
-                targetSdk = AppConfig.targetSdkVersion
-                minSdk = AppConfig.minSdkVersion
-
-                consumerProguardFiles("proguard-rules.pro")
-            }
-
-            buildTypes {
-                named(Debug.name) {
-                    isMinifyEnabled = Debug.isMinifyEnabled
                 }
             }
 

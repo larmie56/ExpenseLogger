@@ -4,6 +4,8 @@ import org.gradle.api.plugins.PluginContainer
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
+// region plugin extensions
+
 internal val PluginContainer.androidApplication: Unit
     get() {
         apply("com.android.application")
@@ -26,12 +28,7 @@ internal val PluginContainer.kotlinKapt: Unit
 
 internal val PluginContainer.kotlinLibrary: Unit
     get() {
-        apply("kotlin-library")
-    }
-
-internal val PluginContainer.javaLibrary: Unit
-    get() {
-        apply("java-library")
+        apply("kotlin")
     }
 
 internal val PluginContainer.daggerHilt: Unit
@@ -44,6 +41,10 @@ val PluginDependenciesSpec.androidApp: PluginDependencySpec
 
 val PluginDependenciesSpec.androidLib: PluginDependencySpec
     get() = id("androidLibrary")
+
+// endregion
+
+// region dependency extensions
 
 fun DependencyHandler.implementation(dependency: String) = add(
     "implementation", dependency
@@ -59,3 +60,5 @@ fun DependencyHandler.testImplementation(dependency: String) {
 
 fun DependencyHandler.kapt(dependencyNotation: String): Dependency? =
     add("kapt", dependencyNotation)
+
+// endregion

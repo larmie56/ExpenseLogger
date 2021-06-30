@@ -1,7 +1,12 @@
 package plugin
 
-import kotlinLibrary
+import extensions.ProjectExtension
 import kotlinKapt
+import kotlinLibrary
+import implementation
+import kapt
+import extensions.KotlinExtension
+import extensions.JavaExtension
 
 class KotlinLibraryPlugin : BasePlugin() {
     override val pluginConfig: PluginConfig
@@ -11,8 +16,14 @@ class KotlinLibraryPlugin : BasePlugin() {
         }
 
     override val libraryConfig: LibraryConfig
-        get() = {}
+        get() = {
+            implementation(Library.hiltCore)
+            kapt(Library.hiltCompiler)
+        }
 
-    override val extensions: Array<ProjectExtensions>
-        get() = arrayOf()
+    override val extensions: Array<ProjectExtension>
+        get() = arrayOf(
+            ProjectExtension.KotlinExtension,
+            ProjectExtension.JavaExtension
+        )
 }
