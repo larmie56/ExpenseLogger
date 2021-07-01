@@ -1,15 +1,28 @@
 package plugin
 
-import androidLibrary
+import implementation
+import kapt
+import androidLibPlugin
+import daggerHilt
+import extensions.ProjectExtension
+import extensions.AndroidLib
 
 class AndroidLibraryPlugin : BasePlugin() {
 
     override val pluginConfig: PluginConfig
-        get() = { androidLibrary }
+        get() = {
+            androidLibPlugin
+            daggerHilt
+        }
 
     override val libraryConfig: LibraryConfig
-        get() = {}
+        get() = {
+            implementation(
+                Library.daggerHiltAndroid
+            )
+            kapt(Library.hiltCompiler)
+        }
 
-    override val extensions: Array<ProjectExtensions>
-        get() = arrayOf(ProjectExtensions.AndroidLib)
+    override val extensions: Array<ProjectExtension>
+        get() = arrayOf(ProjectExtension.AndroidLib)
 }
