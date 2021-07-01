@@ -11,7 +11,7 @@ internal val PluginContainer.androidApplication: Unit
         apply("com.android.application")
     }
 
-internal val PluginContainer.androidLibrary: Unit
+internal val PluginContainer.androidLibPlugin: Unit
     get() {
         apply("com.android.library")
     }
@@ -26,7 +26,7 @@ internal val PluginContainer.kotlinKapt: Unit
         apply("kotlin-kapt")
     }
 
-internal val PluginContainer.kotlinLibrary: Unit
+internal val PluginContainer.kotlinPlugin: Unit
     get() {
         apply("kotlin")
     }
@@ -41,6 +41,9 @@ val PluginDependenciesSpec.androidApp: PluginDependencySpec
 
 val PluginDependenciesSpec.androidLib: PluginDependencySpec
     get() = id("androidLibrary")
+
+val PluginDependenciesSpec.kotlinLib: PluginDependencySpec
+    get() = id("kotlinLibrary")
 
 // endregion
 

@@ -2,7 +2,7 @@ package plugin
 
 import extensions.ProjectExtension
 import kotlinKapt
-import kotlinLibrary
+import kotlinPlugin
 import implementation
 import kapt
 import extensions.KotlinExtension
@@ -11,7 +11,7 @@ import extensions.JavaExtension
 class KotlinLibraryPlugin : BasePlugin() {
     override val pluginConfig: PluginConfig
         get() = {
-            kotlinLibrary
+            kotlinPlugin
             kotlinKapt
         }
 

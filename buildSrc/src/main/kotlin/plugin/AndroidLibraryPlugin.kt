@@ -2,7 +2,7 @@ package plugin
 
 import implementation
 import kapt
-import androidLibrary
+import androidLibPlugin
 import daggerHilt
 import extensions.ProjectExtension
 import extensions.AndroidLib
@@ -11,7 +11,7 @@ class AndroidLibraryPlugin : BasePlugin() {
 
     override val pluginConfig: PluginConfig
         get() = {
-            androidLibrary
+            androidLibPlugin
             daggerHilt
         }
 
