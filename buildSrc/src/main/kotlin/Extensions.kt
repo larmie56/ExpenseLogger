@@ -1,6 +1,9 @@
+import org.gradle.api.Project
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.PluginContainer
+import org.gradle.kotlin.dsl.apply
+import org.gradle.kotlin.dsl.version
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
@@ -45,7 +48,17 @@ val PluginDependenciesSpec.androidLib: PluginDependencySpec
 val PluginDependenciesSpec.kotlinLib: PluginDependencySpec
     get() = id("kotlinLibrary")
 
+val PluginDependenciesSpec.ktlintPlugin: PluginDependencySpec
+    get() = id("org.jlleitschuh.gradle.ktlint") version Version.ktlintPlugin
+
 // endregion
+
+// region project extensions
+
+val Project.applyKtlint
+    get() = apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
+//endregion
 
 // region dependency extensions
 
