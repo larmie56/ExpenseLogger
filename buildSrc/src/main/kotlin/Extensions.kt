@@ -3,21 +3,10 @@ import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.PluginContainer
 import org.gradle.kotlin.dsl.apply
-import org.gradle.kotlin.dsl.version
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
-// region plugin extensions
-
-internal val PluginContainer.androidApplication: Unit
-    get() {
-        apply("com.android.application")
-    }
-
-internal val PluginContainer.androidLibPlugin: Unit
-    get() {
-        apply("com.android.library")
-    }
+// region internal plugin extensions
 
 internal val PluginContainer.kotlinAndroid: Unit
     get() {
@@ -29,15 +18,14 @@ internal val PluginContainer.kotlinKapt: Unit
         apply("kotlin-kapt")
     }
 
-internal val PluginContainer.kotlinPlugin: Unit
-    get() {
-        apply("kotlin")
-    }
-
 internal val PluginContainer.daggerHilt: Unit
     get() {
         apply("dagger.hilt.android.plugin")
     }
+
+// endregion
+
+// region external plugin extensions
 
 val PluginDependenciesSpec.androidApp: PluginDependencySpec
     get() = id("app")
@@ -48,15 +36,15 @@ val PluginDependenciesSpec.androidLib: PluginDependencySpec
 val PluginDependenciesSpec.kotlinLib: PluginDependencySpec
     get() = id("kotlinLibrary")
 
-val PluginDependenciesSpec.ktlintPlugin: PluginDependencySpec
-    get() = id("org.jlleitschuh.gradle.ktlint") version Version.ktlintPlugin
+val PluginDependenciesSpec.ktlint: PluginDependencySpec
+    get() = id("ktlint")
 
 // endregion
 
 // region project extensions
 
 val Project.applyKtlint
-    get() = apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    get() = apply(plugin = "ktlint")
 
 //endregion
 

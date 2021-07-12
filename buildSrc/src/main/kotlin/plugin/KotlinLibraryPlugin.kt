@@ -1,17 +1,17 @@
 package plugin
 
+import Library
+import extensions.JavaExtension
+import extensions.KotlinExtension
 import extensions.ProjectExtension
-import kotlinKapt
-import kotlinPlugin
 import implementation
 import kapt
-import extensions.KotlinExtension
-import extensions.JavaExtension
+import kotlinKapt
 
 class KotlinLibraryPlugin : BasePlugin() {
     override val pluginConfig: PluginConfig
         get() = {
-            kotlinPlugin
+            apply(KOTLIN_PLUGIN_ID)
             kotlinKapt
         }
 
@@ -26,4 +26,8 @@ class KotlinLibraryPlugin : BasePlugin() {
             ProjectExtension.KotlinExtension,
             ProjectExtension.JavaExtension
         )
+
+    private companion object {
+        const val KOTLIN_PLUGIN_ID: String = "kotlin"
+    }
 }

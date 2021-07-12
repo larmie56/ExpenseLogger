@@ -27,7 +27,6 @@ object Version {
     // Junit
     const val junit: String = "4.13"
 
-    //ktlint
-    const val ktlintPlugin: String = "10.1.0"
+    // ktlint
     const val ktlint: String = "0.41.0"
 }
