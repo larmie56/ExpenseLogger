@@ -8,8 +8,7 @@ val ProjectExtension.Companion.Ktlint: ProjectExtension
 
 private class AppKtlintExtension : ProjectExtension {
 
-    override val name: String
-        get() = "ktlint"
+    override val name: String get() = "ktlint"
 
     override fun configure(extension: Any) {
         if (extension !is KtlintExtension) return
