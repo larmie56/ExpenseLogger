@@ -5,7 +5,6 @@ import Build_gradle.Plugin.ktlintPlugin
 
 plugins {
     `kotlin-dsl`
-    `java-gradle-plugin`
 }
 
 gradlePlugin {
