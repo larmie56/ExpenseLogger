@@ -1,20 +1,19 @@
 package plugin
 
 import Library
-import androidApplication
+import daggerHilt
+import extensions.AndroidApp
+import extensions.ProjectExtension
 import implementation
 import kapt
 import kotlinAndroid
 import kotlinKapt
-import daggerHilt
-import extensions.ProjectExtension
-import extensions.AndroidApp
 
 class ApplicationPlugin : BasePlugin() {
 
     override val pluginConfig: PluginConfig
         get() = {
-            androidApplication
+            apply(APP_PLUGIN_ID)
             kotlinAndroid
             kotlinKapt
             daggerHilt
@@ -33,4 +32,8 @@ class ApplicationPlugin : BasePlugin() {
 
     override val extensions: Array<ProjectExtension>
         get() = arrayOf(ProjectExtension.AndroidApp)
+
+    private companion object {
+        const val APP_PLUGIN_ID: String = "com.android.application"
+    }
 }
