@@ -7,5 +7,5 @@ data class Expense(
     val name: String,
     val amount: Double,
     val date: Date,
-    val info: String = ""
+    val info: String
 )
