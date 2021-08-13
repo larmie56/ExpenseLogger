@@ -1,5 +1,6 @@
 import Build_gradle.Plugin.androidLib
 import Build_gradle.Plugin.app
+import Build_gradle.Plugin.featureModule
 import Build_gradle.Plugin.kotlinLib
 import Build_gradle.Plugin.ktlintPlugin
 
@@ -17,6 +18,11 @@ gradlePlugin {
         register(androidLib) {
             id = androidLib
             implementationClass = "plugin.AndroidLibraryPlugin"
+        }
+
+        register(featureModule) {
+            id = featureModule
+            implementationClass = "plugin.FeatureModulePlugin"
         }
 
         register(kotlinLib) {
@@ -52,11 +58,12 @@ repositories {
 object Plugin {
     const val app: String = "app"
     const val androidLib: String = "androidLibrary"
+    const val featureModule: String = "featureModule"
     const val kotlinLib: String = "kotlinLibrary"
     const val ktlintPlugin: String = "ktlint"
 
     object Version {
-        const val kotlin: String = "1.5.20"
+        const val kotlin: String = "1.5.21"
         const val androidGradle = "7.1.0-alpha02"
         const val daggerHilt = "2.37"
         const val ktlint = "10.1.0"

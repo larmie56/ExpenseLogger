@@ -8,6 +8,7 @@ import implementation
 import kapt
 import kotlinAndroid
 import kotlinKapt
+import org.gradle.kotlin.dsl.project
 
 class ApplicationPlugin : BasePlugin() {
 
@@ -27,7 +28,9 @@ class ApplicationPlugin : BasePlugin() {
                 Library.material,
                 Library.daggerHiltAndroid
             )
-            kapt(Library.hiltCompiler)
+            implementation(project(Project.executor))
+            implementation(project(Project.libExpense))
+            kapt(Library.daggerHiltCompiler)
         }
 
     override val extensions: Array<ProjectExtension>

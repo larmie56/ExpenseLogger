@@ -1,13 +1,17 @@
 package com.example.expenselogger.lib_expense.domain.usecase
 
+import com.example.expenselogger.executor.threading.AsyncExecutor
 import com.example.expenselogger.lib_expense.domain.contract.ExpenseContract
 import com.example.expenselogger.lib_expense.domain.model.Expense
+import com.example.expenselogger.lib_expense.domain.usecase.base.AsyncParamUsecase
+import javax.inject.Inject
 
-class GetExpense(
-    private val expenseContract: ExpenseContract
-) {
+public class GetExpense @Inject constructor(
+    private val expenseContract: ExpenseContract,
+    asyncExecutor: AsyncExecutor
+) : AsyncParamUsecase<Long, Expense?>(asyncExecutor) {
 
-    fun getExpense(id: Long): Expense? {
-        return expenseContract.getExpense(id)
-    }
+    override suspend fun execute(
+        param: Long
+    ): Expense? = expenseContract.getExpense(param)
 }

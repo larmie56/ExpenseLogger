@@ -22,7 +22,8 @@ object Library {
     // DI
     const val daggerHiltAndroid: String = "com.google.dagger:hilt-android:${Version.daggerHilt}"
     const val hiltCore: String = "com.google.dagger:hilt-core:${Version.daggerHilt}"
-    const val hiltCompiler: String = "com.google.dagger:hilt-compiler:${Version.daggerHilt}"
+    const val daggerHiltCompiler: String =
+        "com.google.dagger:hilt-android-compiler:${Version.daggerHilt}"
     const val hiltViewModel: String =
         "androidx.hilt:hilt-lifecycle-viewmodel:${Version.androidxHilt}"
     const val androidxHiltCompiler: String = "androidx.hilt:hilt-compiler:${Version.androidxHilt}"
@@ -43,4 +44,9 @@ object Library {
 
     // Junit
     const val junit: String = "unit:junit:${Version.junit}"
+}
+
+object Project {
+    const val executor: String = ":executor"
+    const val libExpense: String = ":lib_expense"
 }

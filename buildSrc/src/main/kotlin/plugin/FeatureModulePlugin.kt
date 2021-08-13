@@ -3,14 +3,14 @@ package plugin
 import Library
 import androidModule
 import daggerHilt
-import extensions.AndroidLib
+import extensions.FeatureModule
 import extensions.ProjectExtension
 import implementation
 import kapt
 import kotlinAndroid
 import kotlinKapt
 
-class AndroidLibraryPlugin : BasePlugin() {
+class FeatureModulePlugin : BasePlugin() {
 
     override val pluginConfig: PluginConfig
         get() = {
@@ -30,5 +30,5 @@ class AndroidLibraryPlugin : BasePlugin() {
         }
 
     override val extensions: Array<ProjectExtension>
-        get() = arrayOf(ProjectExtension.AndroidLib)
+        get() = arrayOf(ProjectExtension.FeatureModule)
 }

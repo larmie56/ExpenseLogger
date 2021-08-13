@@ -1,3 +1,6 @@
-include(":app")
 rootProject.name = "ExpenseLogger"
-include(":lib_expense")
+include(
+    ":app",
+    ":lib_expense",
+    ":executor"
+)

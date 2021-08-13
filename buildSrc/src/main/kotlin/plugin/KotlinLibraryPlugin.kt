@@ -18,7 +18,8 @@ class KotlinLibraryPlugin : BasePlugin() {
     override val libraryConfig: LibraryConfig
         get() = {
             implementation(Library.hiltCore)
-            kapt(Library.hiltCompiler)
+            implementation(Library.coroutines)
+            kapt(Library.daggerHiltCompiler)
         }
 
     override val extensions: Array<ProjectExtension>

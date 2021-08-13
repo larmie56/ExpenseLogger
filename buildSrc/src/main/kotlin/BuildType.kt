@@ -16,14 +16,14 @@ private object BuildTypeDebug : BuildType {
     override val name: String get() = "debug"
     override val isMinifyEnabled: Boolean get() = false
     override val isTestCoverageEnabled: Boolean get() = true
-    override val applicationIdSuffix: String get() = ".debug"
-    override val versionNameSuffix: String get() = "-DEBUG"
+    override val applicationIdSuffix: String get() = ".$name"
+    override val versionNameSuffix: String get() = "-${name.toUpperCase()}"
 }
 
 private object BuildTypeRelease : BuildType {
     override val name: String get() = "release"
     override val isMinifyEnabled: Boolean get() = true
     override val isTestCoverageEnabled: Boolean get() = true
-    override val applicationIdSuffix: String get() = ".release"
-    override val versionNameSuffix: String get() = "-RELEASE"
+    override val applicationIdSuffix: String get() = ".$name"
+    override val versionNameSuffix: String get() = "-${name.toUpperCase()}"
 }
