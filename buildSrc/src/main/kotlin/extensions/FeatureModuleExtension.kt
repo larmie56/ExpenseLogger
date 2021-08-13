@@ -15,25 +15,27 @@ private class FeatureModuleExtension : ProjectExtension {
     override fun configure(extension: Any) {
         if (extension !is LibraryExtension) return
         extension.apply {
-            compileSdk = AppConfig.compileSdkVersion
-
-            defaultConfig {
-                targetSdk = AppConfig.targetSdkVersion
-                minSdk = AppConfig.minSdkVersion
-
-                consumerProguardFiles("proguard-rules.pro")
-            }
-
-            buildTypes {
-                named(Debug.name) {
-                    isMinifyEnabled = Debug.isMinifyEnabled
-                }
-            }
-
-            compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_11
-                targetCompatibility = JavaVersion.VERSION_11
-            }
+            androidConfig()
         }
+    }
+}
+
+fun LibraryExtension.androidConfig() {
+    defaultConfig {
+        targetSdk = AppConfig.targetSdkVersion
+        minSdk = AppConfig.minSdkVersion
+        compileSdk = AppConfig.compileSdkVersion
+        consumerProguardFiles("proguard-rules.pro")
+    }
+
+    buildTypes {
+        named(Debug.name) {
+            isMinifyEnabled = Debug.isMinifyEnabled
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }

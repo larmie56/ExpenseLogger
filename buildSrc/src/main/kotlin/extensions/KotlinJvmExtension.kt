@@ -7,8 +7,7 @@ val ProjectExtension.Companion.KotlinJvmExtension: ProjectExtension
 
 private class KotlinJvmExtension : ProjectExtension {
 
-    override val name: String
-        get() = "kotlinOptions"
+    override val name: String get() = "kotlinOptions"
 
     override fun configure(extension: Any) {
         if (extension !is KotlinJvmOptions) return
