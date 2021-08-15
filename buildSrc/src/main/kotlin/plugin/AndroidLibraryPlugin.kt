@@ -30,7 +30,8 @@ class AndroidLibraryPlugin : BasePlugin() {
             testImplementation(
                 Library.junit,
                 Library.truth,
-                Library.mockito
+                Library.mockito,
+                Library.coroutinesTest
             )
             kapt(Library.daggerHiltCompiler)
         }

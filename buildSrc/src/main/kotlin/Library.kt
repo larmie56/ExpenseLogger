@@ -32,6 +32,10 @@ object Library {
     const val coroutines: String =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
 
+    // Coroutine test
+    const val coroutinesTest: String =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutines}"
+
     // Square
     val okhttp: String =
         "com.squareup.okhttp3:okhttp:${Version.okhttp}"
