@@ -27,6 +27,12 @@ object Version {
     // Junit
     const val junit: String = "4.13"
 
+    // Truth
+    const val truth: String = "1.1.3"
+
+    // Mockito
+    const val mockito: String = "3.11.2"
+
     // ktlint
     const val ktlint: String = "0.42.1"
 }

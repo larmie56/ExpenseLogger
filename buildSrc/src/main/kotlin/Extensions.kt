@@ -66,8 +66,12 @@ fun DependencyHandler.implementation(vararg dependencies: Any) {
     dependencies.forEach(::implementation)
 }
 
-fun DependencyHandler.testImplementation(dependency: String) {
-    add("testImplementation", dependency)
+fun DependencyHandler.testImplementation(dependency: Any) = add(
+    "testImplementation", dependency
+)
+
+fun DependencyHandler.testImplementation(vararg dependencies: Any) {
+    dependencies.forEach(::testImplementation)
 }
 
 fun DependencyHandler.kapt(dependencyNotation: String): Dependency? =

@@ -9,6 +9,7 @@ import implementation
 import kapt
 import kotlinAndroid
 import kotlinKapt
+import testImplementation
 
 class AndroidLibraryPlugin : BasePlugin() {
 
@@ -25,6 +26,11 @@ class AndroidLibraryPlugin : BasePlugin() {
             implementation(
                 Library.daggerHiltAndroid,
                 Library.coroutines
+            )
+            testImplementation(
+                Library.junit,
+                Library.truth,
+                Library.mockito
             )
             kapt(Library.daggerHiltCompiler)
         }
