@@ -32,6 +32,10 @@ object Library {
     const val coroutines: String =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
 
+    // Coroutine test
+    const val coroutinesTest: String =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutines}"
+
     // Square
     val okhttp: String =
         "com.squareup.okhttp3:okhttp:${Version.okhttp}"
@@ -44,6 +48,12 @@ object Library {
 
     // Junit
     const val junit: String = "unit:junit:${Version.junit}"
+
+    // Truth
+    const val truth: String = "com.google.truth:truth:${Version.truth}"
+
+    // Mockito
+    const val mockito: String = "org.mockito:mockito-core:${Version.mockito}"
 }
 
 object Project {
