@@ -13,6 +13,11 @@ internal val PluginContainer.kotlinAndroid: Unit
         apply("kotlin-android")
     }
 
+internal val PluginContainer.androidModule: Unit
+    get() {
+        apply("com.android.library")
+    }
+
 internal val PluginContainer.kotlinKapt: Unit
     get() {
         apply("kotlin-kapt")
@@ -33,6 +38,9 @@ val PluginDependenciesSpec.androidApp: PluginDependencySpec
 val PluginDependenciesSpec.androidLib: PluginDependencySpec
     get() = id("androidLibrary")
 
+val PluginDependenciesSpec.featureModule: PluginDependencySpec
+    get() = id("featureModule")
+
 val PluginDependenciesSpec.kotlinLib: PluginDependencySpec
     get() = id("kotlinLibrary")
 
@@ -50,11 +58,11 @@ val Project.applyKtlint
 
 // region dependency extensions
 
-fun DependencyHandler.implementation(dependency: String) = add(
+fun DependencyHandler.implementation(dependency: Any) = add(
     "implementation", dependency
 )
 
-fun DependencyHandler.implementation(vararg dependencies: String) {
+fun DependencyHandler.implementation(vararg dependencies: Any) {
     dependencies.forEach(::implementation)
 }
 

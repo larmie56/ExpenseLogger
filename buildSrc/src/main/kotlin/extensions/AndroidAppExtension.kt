@@ -15,18 +15,13 @@ private class AndroidAppExtension : ProjectExtension {
     override fun configure(extension: Any) {
         if (extension !is AppExtension) return
         extension.apply {
-            compileSdkVersion(AppConfig.compileSdkVersion)
-
             defaultConfig {
                 applicationId = AppConfig.applicationId
-
-                versionCode(AppConfig.versionCode)
-                versionName(AppConfig.versionName)
-
+                compileSdkVersion(AppConfig.compileSdkVersion)
                 targetSdk = AppConfig.targetSdkVersion
                 minSdk = AppConfig.minSdkVersion
-
-                testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                versionCode(AppConfig.versionCode)
+                versionName(AppConfig.versionName)
             }
 
             buildTypes {

@@ -10,8 +10,8 @@ class KtlintPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.apply(KTLINT_PLUGIN_ID)
         val extension = ProjectExtension.Ktlint
-        val extensionType = project.extensions.getByName(extension.name)
-        extension.configure(extensionType)
+        val ktlintExtension = project.extensions.getByName(extension.name)
+        extension.configure(ktlintExtension)
     }
 
     private companion object {
