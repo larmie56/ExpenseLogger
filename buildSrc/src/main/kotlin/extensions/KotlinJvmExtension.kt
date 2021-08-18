@@ -12,6 +12,8 @@ private class KotlinJvmExtension : ProjectExtension {
     override fun configure(extension: Any) {
         if (extension !is KotlinJvmOptions) return
         extension.apply {
+            freeCompilerArgs += "-Xuse-experimental=" +
+                "kotlinx.coroutines.ExperimentalCoroutinesApi"
             freeCompilerArgs += "-Xexplicit-api=strict"
         }
     }
