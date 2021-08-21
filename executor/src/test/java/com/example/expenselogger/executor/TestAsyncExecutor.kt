@@ -1,4 +1,4 @@
-package com.example.expenselogger.lib_expense.executor
+package com.example.expenselogger.executor
 
 import com.example.expenselogger.executor.threading.AsyncExecutor
 import kotlinx.coroutines.CoroutineDispatcher

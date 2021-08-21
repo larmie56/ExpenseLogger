@@ -1,11 +1,10 @@
 package com.example.expenselogger.lib_expense.domain.usecase
 
+import com.example.expenselogger.executor.TestAsyncExecutor
 import com.example.expenselogger.lib_expense.domain.fakes.FakeExpenseContract
 import com.example.expenselogger.lib_expense.domain.model.DummyData
-import com.example.expenselogger.lib_expense.executor.TestAsyncExecutor
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.assertNotNull
 import org.junit.Test
 
 public class GetExpenseTest {
@@ -25,8 +24,6 @@ public class GetExpenseTest {
             expenseContract.saveExpense(expense)
             val expectedExpense = getExpense.invoke(0)
 
-            assertNotNull(expectedExpense)
-            assertThat(expectedExpense?.id).isEqualTo(0)
             assertThat(expectedExpense?.amount).isEqualTo(13_500.00)
         }
 }
