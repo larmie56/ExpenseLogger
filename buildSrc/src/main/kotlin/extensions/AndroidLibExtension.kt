@@ -13,13 +13,6 @@ private class AndroidLibExtension : ProjectExtension {
     override fun configure(extension: Any) {
         if (extension !is LibraryExtension) return
         extension.apply {
-            sourceSets {
-                named("test") {
-                    java {
-                        srcDir("executor/src/test/java")
-                    }
-                }
-            }
             androidConfig()
             ProjectExtension.KotlinJvmExtension.config(
                 (this as ExtensionAware).extensions

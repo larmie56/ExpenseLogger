@@ -59,4 +59,5 @@ object Library {
 object Project {
     const val executor: String = ":executor"
     const val libExpense: String = ":lib_expense"
+    const val testUtils: String = ":test_utils"
 }

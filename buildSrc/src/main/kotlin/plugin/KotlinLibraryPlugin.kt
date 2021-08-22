@@ -7,7 +7,6 @@ import extensions.ProjectExtension
 import implementation
 import kapt
 import kotlinKapt
-import testImplementation
 
 class KotlinLibraryPlugin : BasePlugin() {
     override val pluginConfig: PluginConfig
@@ -18,9 +17,10 @@ class KotlinLibraryPlugin : BasePlugin() {
 
     override val libraryConfig: LibraryConfig
         get() = {
-            implementation(Library.hiltCore)
-            implementation(Library.coroutines)
-            testImplementation(Library.coroutinesTest)
+            implementation(
+                Library.hiltCore,
+                Library.coroutines
+            )
             kapt(Library.daggerHiltCompiler)
         }
 

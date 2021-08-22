@@ -1,8 +1,8 @@
 plugins {
-    androidLib
+    kotlinLib
 }
 
 dependencies {
+    implementation(Library.coroutinesTest)
     implementation(project(Project.executor))
-    testImplementation(project(Project.testUtils))
 }
