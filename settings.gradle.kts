@@ -2,5 +2,6 @@ rootProject.name = "ExpenseLogger"
 include(
     ":app",
     ":lib_expense",
-    ":executor"
+    ":executor",
+    ":test_utils"
 )

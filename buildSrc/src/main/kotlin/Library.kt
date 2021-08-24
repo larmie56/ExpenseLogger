@@ -47,7 +47,7 @@ object Library {
     const val moshi: String = "com.squareup.moshi:moshi-kotlin:${Version.moshi}"
 
     // Junit
-    const val junit: String = "unit:junit:${Version.junit}"
+    const val junit: String = "junit:junit:${Version.junit}"
 
     // Truth
     const val truth: String = "com.google.truth:truth:${Version.truth}"
@@ -59,4 +59,5 @@ object Library {
 object Project {
     const val executor: String = ":executor"
     const val libExpense: String = ":lib_expense"
+    const val testUtils: String = ":test_utils"
 }
