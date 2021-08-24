@@ -3,5 +3,6 @@ include(
     ":app",
     ":lib_expense",
     ":executor",
-    ":test_utils"
+    ":test_utils",
+    ":cache"
 )
