@@ -7,7 +7,7 @@ import androidx.room.Update
 import com.example.expenselogger.cache.entity.ExpenseEntity
 
 @Dao
-public interface ExpenseDao {
+internal interface ExpenseDao {
     @Insert
     public fun insertExpense(expense: ExpenseEntity)
 
