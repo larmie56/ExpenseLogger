@@ -4,8 +4,9 @@ import com.example.expenselogger.cache.dao.ExpenseDao
 import com.example.expenselogger.cache.entity.ExpenseEntity
 import javax.inject.Inject
 
-internal class ExpenseRepositoryImpl @Inject constructor(private val expenseDao: ExpenseDao) :
-    ExpenseRepository {
+internal class ExpenseRepositoryImpl @Inject constructor(
+    private val expenseDao: ExpenseDao
+) : ExpenseRepository {
 
     override fun insertExpense(expenseEntity: ExpenseEntity) {
         expenseDao.insertExpense(expenseEntity)

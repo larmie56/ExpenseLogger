@@ -14,7 +14,7 @@ internal abstract class ExpenseDatabase : RoomDatabase() {
 
     public companion object {
         private const val DATABASE_NAME: String = "expense_db"
-        public fun build(context: Context): ExpenseDatabase = Room.databaseBuilder(
+        internal fun build(context: Context): ExpenseDatabase = Room.databaseBuilder(
             context.applicationContext,
             ExpenseDatabase::class.java,
             DATABASE_NAME

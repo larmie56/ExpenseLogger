@@ -14,21 +14,20 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @[Module InstallIn(SingletonComponent::class)]
-internal object CacheModule {
+internal interface CacheModule {
 
-    @[Provides Singleton]
-    public fun providesExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase {
-        return ExpenseDatabase.build(context)
-    }
-
-    @[Provides Singleton]
-    public fun providesExpenseDao(expenseDatabase: ExpenseDatabase): ExpenseDao {
-        return expenseDatabase.expenseDao
-    }
-}
-
-@[Module InstallIn(SingletonComponent::class)]
-internal interface CacheModuleBinding {
     @get:Binds
     public val ExpenseRepositoryImpl.expenseRepository: ExpenseRepository
+
+    companion object {
+        @[Provides Singleton]
+        public fun providesExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase {
+            return ExpenseDatabase.build(context)
+        }
+
+        @[Provides Singleton]
+        public fun providesExpenseDao(expenseDatabase: ExpenseDatabase): ExpenseDao {
+            return expenseDatabase.expenseDao
+        }
+    }
 }
