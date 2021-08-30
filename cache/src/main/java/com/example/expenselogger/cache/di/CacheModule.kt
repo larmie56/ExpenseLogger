@@ -21,12 +21,12 @@ internal interface CacheModule {
 
     companion object {
         @[Provides Singleton]
-        public fun providesExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase {
+        internal fun providesExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase {
             return ExpenseDatabase.build(context)
         }
 
         @[Provides Singleton]
-        public fun providesExpenseDao(expenseDatabase: ExpenseDatabase): ExpenseDao {
+        internal fun providesExpenseDao(expenseDatabase: ExpenseDatabase): ExpenseDao {
             return expenseDatabase.expenseDao
         }
     }

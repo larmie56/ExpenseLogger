@@ -6,18 +6,19 @@ import com.example.expenselogger_test_utils.TestAsyncExecutor
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 public class GetExpensesTest {
 
-    private val expenseContract = mock(ExpenseContract::class.java)
-    private val getExpenses = GetExpenses(expenseContract, TestAsyncExecutor())
-
     @Test
     public fun `verify that getExpenses usecase gets a list of expenses`(): Unit = runBlockingTest {
-        `when`(expenseContract.getExpenses()).thenReturn(listOf(DummyData.expense))
+        val expenses = listOf(DummyData.expense)
+        val expenseContract = mock<ExpenseContract>().apply {
+            whenever(getExpenses()).thenReturn(expenses)
+        }
+        val getExpenses = GetExpenses(expenseContract, TestAsyncExecutor())
         val expectedExpenses = getExpenses.invoke()
-        assertThat(expectedExpenses.size).isEqualTo(1)
+        assertThat(expectedExpenses).isEqualTo(expenses)
     }
 }

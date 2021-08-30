@@ -10,9 +10,9 @@ import com.example.expenselogger.cache.entity.ExpenseEntity
 @Database(entities = [ExpenseEntity::class], version = 1, exportSchema = false)
 internal abstract class ExpenseDatabase : RoomDatabase() {
 
-    public abstract val expenseDao: ExpenseDao
+    internal abstract val expenseDao: ExpenseDao
 
-    public companion object {
+    internal companion object {
         private const val DATABASE_NAME: String = "expense_db"
         internal fun build(context: Context): ExpenseDatabase = Room.databaseBuilder(
             context.applicationContext,

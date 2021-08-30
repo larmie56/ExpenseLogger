@@ -54,7 +54,7 @@ object Library {
     const val truth: String = "com.google.truth:truth:${Version.truth}"
 
     // Mockito
-    const val mockito: String = "org.mockito:mockito-core:${Version.mockito}"
+    const val mockito = "org.mockito.kotlin:mockito-kotlin:${Version.mockito}"
 }
 
 object Project {
