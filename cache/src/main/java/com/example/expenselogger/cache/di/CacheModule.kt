@@ -17,17 +17,17 @@ import javax.inject.Singleton
 internal interface CacheModule {
 
     @get:Binds
-    public val ExpenseRepositoryImpl.expenseRepository: ExpenseRepository
+    val ExpenseRepositoryImpl.expenseRepository: ExpenseRepository
 
     companion object {
         @[Provides Singleton]
-        internal fun providesExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase {
-            return ExpenseDatabase.build(context)
-        }
+        fun providesExpenseDatabase(
+            @ApplicationContext context: Context
+        ): ExpenseDatabase = ExpenseDatabase.build(context)
 
         @[Provides Singleton]
-        internal fun providesExpenseDao(expenseDatabase: ExpenseDatabase): ExpenseDao {
-            return expenseDatabase.expenseDao
-        }
+        fun providesExpenseDao(
+            expenseDatabase: ExpenseDatabase
+        ): ExpenseDao = expenseDatabase.expenseDao
     }
 }

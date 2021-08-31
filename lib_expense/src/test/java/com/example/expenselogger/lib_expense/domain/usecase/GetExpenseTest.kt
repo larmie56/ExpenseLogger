@@ -19,10 +19,6 @@ public class GetExpenseTest {
         }
         val getExpense = GetExpense(expenseContract, TestAsyncExecutor())
         val expectedExpense = getExpense.invoke(0)
-        assertThat(expectedExpense?.id).isEqualTo(expense.id)
-        assertThat(expectedExpense?.name).isEqualTo(expense.name)
-        assertThat(expectedExpense?.amount).isEqualTo(expense.amount)
-        assertThat(expectedExpense?.date).isEqualTo(expense.date)
-        assertThat(expectedExpense?.info).isEqualTo(expense.info)
+        assertThat(expectedExpense).isEqualTo(expense)
     }
 }
