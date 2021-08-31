@@ -31,7 +31,7 @@ object Version {
     const val truth: String = "1.1.3"
 
     // Mockito
-    const val mockito: String = "3.11.2"
+    const val mockito: String = "3.2.0"
 
     // ktlint
     const val ktlint: String = "0.42.1"

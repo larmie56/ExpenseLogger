@@ -74,7 +74,12 @@ fun DependencyHandler.testImplementation(vararg dependencies: Any) {
     dependencies.forEach(::testImplementation)
 }
 
-fun DependencyHandler.kapt(dependencyNotation: String): Dependency? =
-    add("kapt", dependencyNotation)
+fun DependencyHandler.kapt(dependency: Any): Dependency? = add(
+    "kapt", dependency
+)
+
+fun DependencyHandler.kapt(vararg dependencies: Any) {
+    dependencies.forEach(::kapt)
+}
 
 // endregion
