@@ -10,4 +10,6 @@ object AppConfig {
     const val versionCode: Int = 1
 
     const val versionName: String = "1.0"
+
+    const val testInstrumentationRunner: String = "androidx.test.runner.AndroidJUnitRunner"
 }
