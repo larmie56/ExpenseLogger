@@ -33,6 +33,9 @@ object Version {
     // Mockito
     const val mockito: String = "3.2.0"
 
+    // AndroidXTest
+    const val testExt: String = "1.1.3"
+
     // ktlint
     const val ktlint: String = "0.42.1"
 }

@@ -32,6 +32,7 @@ class AndroidLibraryPlugin : BasePlugin() {
                 Library.junit,
                 Library.truth,
                 Library.mockito,
+                Library.androidXTest,
                 Library.coroutinesTest
             )
             kapt(

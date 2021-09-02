@@ -9,17 +9,17 @@ import com.example.expenselogger.cache.entity.ExpenseEntity
 @Dao
 internal interface ExpenseDao {
     @Insert
-    fun insertExpense(expense: ExpenseEntity)
+    suspend fun insertExpense(expense: ExpenseEntity)
 
     @Update
-    fun updateExpense(expense: ExpenseEntity)
+    suspend fun updateExpense(expense: ExpenseEntity)
 
     @Query("SELECT * FROM expense WHERE id = :id")
-    fun getExpense(id: Long): ExpenseEntity
+    suspend fun getExpense(id: Long): ExpenseEntity
 
     @Query("SELECT * FROM expense ORDER BY date ASC")
-    public fun getExpenses(): List<ExpenseEntity>
+    suspend fun getExpenses(): List<ExpenseEntity>
 
     @Query("DELETE FROM expense WHERE id = :id")
-    fun deleteExpense(id: Long)
+    suspend fun deleteExpense(id: Long)
 }
