@@ -25,20 +25,15 @@ class AndroidLibraryPlugin : BasePlugin() {
         get() = {
             implementation(
                 Library.daggerHiltAndroid,
-                Library.coroutines,
-                Library.room
+                Library.coroutines
             )
             testImplementation(
                 Library.junit,
                 Library.truth,
                 Library.mockito,
-                Library.androidXTest,
                 Library.coroutinesTest
             )
-            kapt(
-                Library.daggerHiltCompiler,
-                Library.roomCompiler
-            )
+            kapt(Library.daggerHiltCompiler)
         }
 
     override val extensions: Array<ProjectExtension>

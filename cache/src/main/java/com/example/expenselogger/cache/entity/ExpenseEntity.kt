@@ -6,9 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "expense")
 public data class ExpenseEntity(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id: Long,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "amount")
@@ -17,4 +14,8 @@ public data class ExpenseEntity(
     val date: Long,
     @ColumnInfo(name = "info")
     val info: String
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long = 0L
+}

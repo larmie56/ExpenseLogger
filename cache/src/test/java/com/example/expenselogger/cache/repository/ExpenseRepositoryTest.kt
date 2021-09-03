@@ -6,20 +6,20 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.expenselogger.cache.ExpenseDatabase
 import com.example.expenselogger.cache.entity.DummyData
 import com.google.common.truth.Truth.assertThat
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-public class ExpenseRepositoryImplTest {
+internal class ExpenseRepositoryTest {
 
     private lateinit var expenseRepository: ExpenseRepository
     private lateinit var expenseDatabase: ExpenseDatabase
 
     @Before
-    public fun setup() {
+    fun setup() {
         expenseDatabase = Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
             ExpenseDatabase::class.java
@@ -30,33 +30,33 @@ public class ExpenseRepositoryImplTest {
         )
     }
 
+    @After
+    fun `tearDown()`() {
+        expenseDatabase.close()
+    }
+
     @Test
-    public fun `verify that insertExpense inserts Expense into database`(): Unit =
-        runBlockingTest {
+    fun `verify that insertExpense inserts Expense into database`(): Unit =
+        runBlocking {
             val expenseEntity = DummyData.expenseEntity
-            expenseRepository.insertExpense(expenseEntity)
-            val expectedExpenseEntity = expenseRepository.getExpense(0)
-            assertThat(expectedExpenseEntity).isEqualTo(expenseEntity)
+            val id = expenseRepository.insertExpense(expenseEntity)
+            val actual = expenseRepository.getExpense(id)
+            assertThat(actual).isEqualTo(expenseEntity)
         }
 
     @Test
-    public fun `verify that getExpenses gets list of expenses`(): Unit = runBlockingTest {
+    fun `verify that getExpenses gets list of expenses`(): Unit = runBlocking {
         val expense = DummyData.expenseEntity
         expenseRepository.insertExpense(expense)
-        val expectedExpenses = expenseRepository.getExpenses().first()
-        assertThat(expense).isEqualTo(expectedExpenses)
+        val actual = expenseRepository.getExpenses()
+        assertThat(actual).isEqualTo(listOf(expense))
     }
 
     @Test
-    public fun `verify that getExpense gets an expense`(): Unit = runBlockingTest {
+    fun `verify that getExpense gets an expense`(): Unit = runBlocking {
         val expenseEntity = DummyData.expenseEntity
-        expenseRepository.insertExpense(expenseEntity)
-        val expectedExpenseEntity = expenseRepository.getExpense(0)
-        assertThat(expectedExpenseEntity).isEqualTo(expenseEntity)
-    }
-
-    @After
-    public fun `tearDown()`() {
-        expenseDatabase.close()
+        val id = expenseRepository.insertExpense(expenseEntity)
+        val actual = expenseRepository.getExpense(id)
+        assertThat(actual).isEqualTo(expenseEntity)
     }
 }
