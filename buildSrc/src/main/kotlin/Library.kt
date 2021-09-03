@@ -58,7 +58,6 @@ object Library {
 
     // AndroidXTest
     const val androidXTest: String = "androidx.test.ext:junit:${Version.testExt}"
-    const val runner: String = "androidx.test:runner:${Version.runner}"
     const val robolectric: String = "org.robolectric:robolectric:${Version.robolectric}"
 }
 

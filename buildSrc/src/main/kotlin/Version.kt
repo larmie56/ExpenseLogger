@@ -36,7 +36,6 @@ object Version {
     // AndroidXTest
     const val testExt: String = "1.1.3"
     const val robolectric: String = "4.5.1"
-    const val runner: String = "1.2.0"
 
     // ktlint
     const val ktlint: String = "0.42.1"

@@ -8,8 +8,6 @@ dependencies {
 
     testImplementation(
         Library.androidXTest,
-        Library.runner,
-        Library.androidXTest,
         Library.robolectric
     )
 }
