@@ -59,4 +59,25 @@ internal class ExpenseRepositoryTest {
         val actual = expenseRepository.getExpense(id)
         assertThat(actual).isEqualTo(expenseEntity)
     }
+
+    @Test
+    fun `verify that updateExpense updates an expense`(): Unit = runBlocking {
+        val expenseEntity = DummyData.expenseEntity
+        val id = expenseRepository.insertExpense(expenseEntity)
+        val newExpenseEntity = expenseRepository.getExpense(id)
+        val newInfo = "Valentine outing with now ex bae"
+        newExpenseEntity?.info = newInfo
+        expenseRepository.updateExpense(newExpenseEntity!!)
+        val actual = expenseRepository.getExpense(id)
+        assertThat(actual?.info).isEqualTo(newInfo)
+    }
+
+    @Test
+    fun `verify that deleteExpense deletes an expense`(): Unit = runBlocking {
+        val expenseEntity = DummyData.expenseEntity
+        val id = expenseRepository.insertExpense(expenseEntity)
+        expenseRepository.deleteExpense(id)
+        val actual = expenseRepository.getExpense(id)
+        assertThat(actual).isNull()
+    }
 }
