@@ -13,7 +13,7 @@ public data class ExpenseEntity(
     @ColumnInfo(name = "date")
     val date: Long,
     @ColumnInfo(name = "info")
-    var info: String
+    val info: String
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

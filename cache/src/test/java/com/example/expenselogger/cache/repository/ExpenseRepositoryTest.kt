@@ -66,8 +66,11 @@ internal class ExpenseRepositoryTest {
         val id = expenseRepository.insertExpense(expenseEntity)
         val newExpenseEntity = expenseRepository.getExpense(id)
         val newInfo = "Valentine outing with now ex bae"
-        newExpenseEntity?.info = newInfo
-        expenseRepository.updateExpense(newExpenseEntity!!)
+        val newExpenseEntityCopy = newExpenseEntity?.copy(info = newInfo)
+        newExpenseEntityCopy?.let {
+            it.id = id
+            expenseRepository.updateExpense(it)
+        }
         val actual = expenseRepository.getExpense(id)
         assertThat(actual?.info).isEqualTo(newInfo)
     }
