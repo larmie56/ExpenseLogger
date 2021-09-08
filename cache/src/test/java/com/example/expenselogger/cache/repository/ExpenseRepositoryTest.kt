@@ -41,15 +41,20 @@ internal class ExpenseRepositoryTest {
             val expenseEntity = DummyData.expenseEntity
             val id = expenseRepository.insertExpense(expenseEntity)
             val actual = expenseRepository.getExpense(id)
-            assertThat(actual).isEqualTo(expenseEntity)
+            assertThat(actual).isEqualTo(expenseEntity.copy(id = id))
         }
 
     @Test
     fun `verify that getExpenses gets list of expenses`(): Unit = runBlocking {
         val expense = DummyData.expenseEntity
-        expenseRepository.insertExpense(expense)
+        val id = expenseRepository.insertExpense(expense)
+        val id2 = expenseRepository.insertExpense(expense)
         val actual = expenseRepository.getExpenses()
-        assertThat(actual).isEqualTo(listOf(expense))
+        val expected = listOf(
+            expense.copy(id = id),
+            expense.copy(id = id2)
+        )
+        assertThat(actual).isEqualTo(expected)
     }
 
     @Test
@@ -57,22 +62,7 @@ internal class ExpenseRepositoryTest {
         val expenseEntity = DummyData.expenseEntity
         val id = expenseRepository.insertExpense(expenseEntity)
         val actual = expenseRepository.getExpense(id)
-        assertThat(actual).isEqualTo(expenseEntity)
-    }
-
-    @Test
-    fun `verify that updateExpense updates an expense`(): Unit = runBlocking {
-        val expenseEntity = DummyData.expenseEntity
-        val id = expenseRepository.insertExpense(expenseEntity)
-        val newExpenseEntity = expenseRepository.getExpense(id)
-        val newInfo = "Valentine outing with now ex bae"
-        val newExpenseEntityCopy = newExpenseEntity?.copy(info = newInfo)
-        newExpenseEntityCopy?.let {
-            it.id = id
-            expenseRepository.updateExpense(it)
-        }
-        val actual = expenseRepository.getExpense(id)
-        assertThat(actual?.info).isEqualTo(newInfo)
+        assertThat(actual).isEqualTo(expenseEntity.copy(id = id))
     }
 
     @Test
