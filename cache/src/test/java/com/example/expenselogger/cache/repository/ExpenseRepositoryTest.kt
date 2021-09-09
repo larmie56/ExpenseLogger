@@ -45,6 +45,18 @@ internal class ExpenseRepositoryTest {
         }
 
     @Test
+    fun `verify that updateExpense updates an Expense in the database`(): Unit =
+        runBlocking {
+            val expenseEntity = DummyData.expenseEntity
+            val id = expenseRepository.insertExpense(expenseEntity)
+            val newInfo = "Valentine outing with now ex bae"
+            val expenseEntityUpdate = expenseEntity.copy(id = id, info = newInfo)
+            expenseRepository.updateExpense(expenseEntityUpdate)
+            val actual = expenseRepository.getExpense(id)
+            assertThat(actual).isEqualTo(expenseEntityUpdate)
+        }
+
+    @Test
     fun `verify that getExpenses gets list of expenses`(): Unit = runBlocking {
         val expense = DummyData.expenseEntity
         val id = expenseRepository.insertExpense(expense)

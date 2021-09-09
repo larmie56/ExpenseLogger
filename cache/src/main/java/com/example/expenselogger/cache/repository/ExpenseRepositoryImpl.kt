@@ -12,6 +12,10 @@ internal class ExpenseRepositoryImpl @Inject constructor(
         expenseEntity: ExpenseEntity
     ): Long = expenseDao.insertExpense(expenseEntity)
 
+    override suspend fun updateExpense(
+        expenseEntity: ExpenseEntity
+    ) = expenseDao.updateExpense(expenseEntity)
+
     override suspend fun getExpense(
         id: Long
     ): ExpenseEntity? = expenseDao.getExpense(id)
