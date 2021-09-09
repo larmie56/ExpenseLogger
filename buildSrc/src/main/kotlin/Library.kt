@@ -55,6 +55,10 @@ object Library {
 
     // Mockito
     const val mockito = "org.mockito.kotlin:mockito-kotlin:${Version.mockito}"
+
+    // AndroidXTest
+    const val androidXTest: String = "androidx.test.ext:junit:${Version.testExt}"
+    const val robolectric: String = "org.robolectric:robolectric:${Version.robolectric}"
 }
 
 object Project {

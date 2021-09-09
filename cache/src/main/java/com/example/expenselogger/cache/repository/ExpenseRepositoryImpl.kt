@@ -8,23 +8,21 @@ internal class ExpenseRepositoryImpl @Inject constructor(
     private val expenseDao: ExpenseDao
 ) : ExpenseRepository {
 
-    override fun insertExpense(expenseEntity: ExpenseEntity) {
-        expenseDao.insertExpense(expenseEntity)
-    }
+    override suspend fun insertExpense(
+        expenseEntity: ExpenseEntity
+    ): Long = expenseDao.insertExpense(expenseEntity)
 
-    override fun updateExpense(expenseEntity: ExpenseEntity) {
-        expenseDao.updateExpense(expenseEntity)
-    }
+    override suspend fun updateExpense(
+        expenseEntity: ExpenseEntity
+    ) = expenseDao.updateExpense(expenseEntity)
 
-    override fun getExpense(id: Long): ExpenseEntity? {
-        return expenseDao.getExpense(id)
-    }
+    override suspend fun getExpense(
+        id: Long
+    ): ExpenseEntity? = expenseDao.getExpense(id)
 
-    override fun getExpenses(): List<ExpenseEntity> {
-        return expenseDao.getExpenses()
-    }
+    override suspend fun getExpenses(): List<ExpenseEntity> = expenseDao.getExpenses()
 
-    override fun deleteExpense(id: Long) {
+    override suspend fun deleteExpense(id: Long) {
         expenseDao.deleteExpense(id)
     }
 }

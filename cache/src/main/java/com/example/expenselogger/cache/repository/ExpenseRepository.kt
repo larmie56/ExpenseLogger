@@ -3,10 +3,9 @@ package com.example.expenselogger.cache.repository
 import com.example.expenselogger.cache.entity.ExpenseEntity
 
 public interface ExpenseRepository {
-
-    public fun insertExpense(expenseEntity: ExpenseEntity)
-    public fun updateExpense(expenseEntity: ExpenseEntity)
-    public fun getExpense(id: Long): ExpenseEntity?
-    public fun getExpenses(): List<ExpenseEntity>
-    public fun deleteExpense(id: Long)
+    public suspend fun insertExpense(expenseEntity: ExpenseEntity): Long
+    public suspend fun updateExpense(expenseEntity: ExpenseEntity)
+    public suspend fun getExpense(id: Long): ExpenseEntity?
+    public suspend fun getExpenses(): List<ExpenseEntity>
+    public suspend fun deleteExpense(id: Long)
 }

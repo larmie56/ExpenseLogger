@@ -22,6 +22,7 @@ private class AndroidAppExtension : ProjectExtension {
                 minSdk = AppConfig.minSdkVersion
                 versionCode(AppConfig.versionCode)
                 versionName(AppConfig.versionName)
+                testInstrumentationRunner = AppConfig.testInstrumentationRunner
             }
 
             buildTypes {
