@@ -6,12 +6,12 @@ import com.example.expenselogger.lib_expense.domain.model.Expense
 import com.example.expenselogger.lib_expense.domain.usecase.base.AsyncParamUsecase
 import javax.inject.Inject
 
-public class SaveExpense @Inject constructor(
+public class UpdateExpense @Inject constructor(
     private val expenseContract: ExpenseContract,
     asyncExecutor: AsyncExecutor
 ) : AsyncParamUsecase<Expense, Unit>(asyncExecutor) {
 
     override suspend fun execute(
         param: Expense
-    ): Unit = expenseContract.saveExpense(param)
+    ): Unit = expenseContract.updateExpense(param)
 }

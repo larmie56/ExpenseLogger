@@ -29,9 +29,9 @@ public class ExpenseContractImplTest {
     @Test
     public fun `verify that getExpenses returns list of expenses`(): Unit = runBlockingTest {
         val expense = DummyData.expense
-        expenseContract.saveExpense(expense)
+        val id = expenseContract.insertExpense(expense)
         val actual = expenseContract.getExpenses()
-        val expected = listOf(expense.copy(expense.id.plus(1)))
+        val expected = listOf(expense.copy(id))
         assertThat(actual).isEqualTo(expected)
     }
 
@@ -45,26 +45,26 @@ public class ExpenseContractImplTest {
     @Test
     public fun `verify that getExpense gets an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
-        expenseContract.saveExpense(expense)
-        val actual = expenseContract.getExpense(expense.id.plus(1))
-        assertThat(actual).isEqualTo(expense.copy(expense.id.plus(1)))
+        val id = expenseContract.insertExpense(expense)
+        val actual = expenseContract.getExpense(id)
+        assertThat(actual).isEqualTo(expense.copy(id))
     }
 
     @Test
-    public fun `verify that saveExpense saves an expense`(): Unit = runBlockingTest {
+    public fun `verify that insertExpense inserts an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
-        expenseContract.saveExpense(expense)
-        val actual = expenseContract.getExpense(expense.id.plus(1))
-        assertThat(actual).isEqualTo(expense.copy(1))
+        val id = expenseContract.insertExpense(expense)
+        val actual = expenseContract.getExpense(id)
+        assertThat(actual).isEqualTo(expense.copy(id))
     }
 
     @Test
-    public fun `verify that saveExpense updates an expense`(): Unit = runBlockingTest {
+    public fun `verify that updateExpense updates an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
-        expenseContract.saveExpense(expense)
+        val id = expenseContract.insertExpense(expense)
         val newInfo = "Valentine outing with now ex bae"
-        val updatedExpense = expense.copy(1, info = newInfo)
-        expenseContract.saveExpense(updatedExpense)
+        val updatedExpense = expense.copy(id, info = newInfo)
+        expenseContract.updateExpense(updatedExpense)
         val actual = expenseContract.getExpense(updatedExpense.id)
         assertThat(actual).isEqualTo(updatedExpense)
     }
@@ -72,9 +72,9 @@ public class ExpenseContractImplTest {
     @Test
     public fun `verify that delete expense deletes an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
-        expenseContract.saveExpense(expense)
-        expenseContract.deleteExpense(expense)
-        val actual = expenseContract.getExpense(expense.id)
+        val id = expenseContract.insertExpense(expense)
+        expenseContract.deleteExpense(expense.copy(id))
+        val actual = expenseContract.getExpense(id)
         assertThat(actual).isNull()
     }
 }

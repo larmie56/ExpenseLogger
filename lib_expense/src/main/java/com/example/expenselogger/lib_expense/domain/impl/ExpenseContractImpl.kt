@@ -10,13 +10,11 @@ internal class ExpenseContractImpl @Inject constructor(
     private val expenseRepository: ExpenseRepository,
     private val expenseModelMapper: ExpenseModelMapper
 ) : ExpenseContract {
-    override suspend fun saveExpense(expense: Expense) {
-        if (expense.id <= 0L) {
-            expenseRepository.insertExpense(expenseModelMapper.mapFromModel(expense))
-        } else {
-            expenseRepository.updateExpense(expenseModelMapper.mapFromModel(expense))
-        }
-    }
+    override suspend fun insertExpense(expense: Expense): Long =
+        expenseRepository.insertExpense(expenseModelMapper.mapFromModel(expense))
+
+    override suspend fun updateExpense(expense: Expense) =
+        expenseRepository.updateExpense(expenseModelMapper.mapFromModel(expense))
 
     override suspend fun getExpense(id: Long): Expense? =
         expenseRepository.getExpense(id)?.let { expenseModelMapper.mapToModel(it) }

@@ -6,24 +6,27 @@ import com.example.expenselogger_test_utils.TestAsyncExecutor
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mockito.verify
 import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
 
-public class SaveExpenseTest {
+public class UpdateExpenseTest {
 
     private lateinit var expenseContract: ExpenseContract
-    private lateinit var saveExpense: SaveExpense
+    private lateinit var updateExpense: UpdateExpense
 
     @Before
     public fun setup() {
         expenseContract = mock()
-        saveExpense = SaveExpense(expenseContract, TestAsyncExecutor())
+        updateExpense = UpdateExpense(
+            expenseContract,
+            TestAsyncExecutor()
+        )
     }
 
     @Test
-    public fun `verify that saveExpense usecase saves an expense`(): Unit = runBlockingTest {
+    public fun `verify that updateExpense usecase updates an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
-        saveExpense.invoke(expense)
-        verify(expenseContract).saveExpense(expense)
+        updateExpense.invoke(expense)
+        verify(expenseContract).updateExpense(expense)
     }
 }
