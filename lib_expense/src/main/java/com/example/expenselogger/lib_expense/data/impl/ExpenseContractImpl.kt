@@ -1,8 +1,8 @@
-package com.example.expenselogger.lib_expense.domain.impl
+package com.example.expenselogger.lib_expense.data.impl
 
 import com.example.expenselogger.cache.repository.ExpenseRepository
+import com.example.expenselogger.lib_expense.data.mapper.ExpenseModelMapper
 import com.example.expenselogger.lib_expense.domain.contract.ExpenseContract
-import com.example.expenselogger.lib_expense.domain.mapper.ExpenseModelMapper
 import com.example.expenselogger.lib_expense.domain.model.Expense
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.example.expenselogger.lib_expense.domain.mapper
+package com.example.expenselogger.lib_expense.data.mapper
 
 import com.example.expenselogger.cache.entity.ExpenseEntity
 import com.example.expenselogger.lib_expense.domain.model.Expense

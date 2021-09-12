@@ -1,8 +1,8 @@
 package com.example.expenselogger.lib_expense.domain.contract
 
+import com.example.expenselogger.lib_expense.data.impl.ExpenseContractImpl
+import com.example.expenselogger.lib_expense.data.mapper.ExpenseModelMapper
 import com.example.expenselogger.lib_expense.domain.fakes.FakeExpenseRepository
-import com.example.expenselogger.lib_expense.domain.impl.ExpenseContractImpl
-import com.example.expenselogger.lib_expense.domain.mapper.ExpenseModelMapper
 import com.example.expenselogger.lib_expense.domain.model.DummyData
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.test.runBlockingTest
