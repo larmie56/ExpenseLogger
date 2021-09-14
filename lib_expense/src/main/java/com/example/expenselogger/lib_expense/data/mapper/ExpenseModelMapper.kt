@@ -19,6 +19,7 @@ internal class ExpenseModelMapper @Inject constructor() {
 
     fun mapFromModel(expenseModel: Expense): ExpenseEntity {
         return ExpenseEntity(
+            id = expenseModel.id,
             name = expenseModel.name,
             amount = expenseModel.amount,
             date = expenseModel.date.time,

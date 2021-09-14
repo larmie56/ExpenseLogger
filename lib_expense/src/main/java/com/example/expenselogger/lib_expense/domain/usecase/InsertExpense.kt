@@ -9,9 +9,9 @@ import javax.inject.Inject
 public class InsertExpense @Inject constructor(
     private val expenseContract: ExpenseContract,
     asyncExecutor: AsyncExecutor
-) : AsyncParamUsecase<Expense, Long>(asyncExecutor) {
+) : AsyncParamUsecase<Expense, Unit>(asyncExecutor) {
 
     override suspend fun execute(
         param: Expense
-    ): Long = expenseContract.insertExpense(param)
+    ): Unit = expenseContract.insertExpense(param)
 }
