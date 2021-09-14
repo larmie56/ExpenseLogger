@@ -2,7 +2,7 @@ package com.example.expenselogger.lib_expense.domain.model
 
 import java.util.Date
 
-public object DummyData {
+internal object DummyData {
 
     public val expense: Expense = Expense(
         id = 0,

@@ -9,19 +9,19 @@ import org.junit.Test
 import org.mockito.Mockito.verify
 import org.mockito.kotlin.mock
 
-public class DeleteExpenseTest {
+internal class DeleteExpenseTest {
 
     private lateinit var expenseContract: ExpenseContract
     private lateinit var deleteExpense: DeleteExpense
 
     @Before
-    public fun setup() {
+    fun setup() {
         expenseContract = mock()
         deleteExpense = DeleteExpense(expenseContract, TestAsyncExecutor())
     }
 
     @Test
-    public fun `verify that deleteExpense usecase deletes an expense`(): Unit = runBlockingTest {
+    fun `verify that deleteExpense usecase deletes an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         deleteExpense.invoke(expense)
         verify(expenseContract).deleteExpense(expense)

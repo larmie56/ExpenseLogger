@@ -9,19 +9,19 @@ import org.junit.Test
 import org.mockito.Mockito.verify
 import org.mockito.kotlin.mock
 
-public class InsertExpenseTest {
+internal class InsertExpenseTest {
 
     private lateinit var expenseContract: ExpenseContract
     private lateinit var insertExpense: InsertExpense
 
     @Before
-    public fun setup() {
+    fun setup() {
         expenseContract = mock()
         insertExpense = InsertExpense(expenseContract, TestAsyncExecutor())
     }
 
     @Test
-    public fun `verify that insertExpense usecase inserts an expense`(): Unit = runBlockingTest {
+    fun `verify that insertExpense usecase inserts an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         insertExpense.invoke(expense)
         verify(expenseContract).insertExpense(expense)

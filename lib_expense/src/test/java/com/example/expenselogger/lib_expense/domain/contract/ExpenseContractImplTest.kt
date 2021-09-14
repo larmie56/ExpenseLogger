@@ -11,14 +11,14 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
-public class ExpenseContractImplTest {
+internal class ExpenseContractImplTest {
 
     private lateinit var expenseContract: ExpenseContractImpl
     private lateinit var expenseRepository: ExpenseCacheRepository
     private lateinit var expenseModelMapper: ExpenseModelMapper
 
     @Before
-    public fun setup() {
+    fun setup() {
         expenseRepository = mock()
         expenseModelMapper = ExpenseModelMapper()
         expenseContract = ExpenseContractImpl(
@@ -28,7 +28,7 @@ public class ExpenseContractImplTest {
     }
 
     @Test
-    public fun `verify that getExpenses returns list of expenses`(): Unit = runBlockingTest {
+    fun `verify that getExpenses returns list of expenses`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         val expenseEntities = expenseModelMapper.mapFromModelList(listOf(expense))
         expenseRepository.apply {
@@ -39,14 +39,14 @@ public class ExpenseContractImplTest {
     }
 
     @Test
-    public fun `verify that getExpense gets an expense`(): Unit = runBlockingTest {
+    fun `verify that getExpense gets an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         expenseContract.getExpense(expense.id)
         verify(expenseRepository).getExpense(expense.id)
     }
 
     @Test
-    public fun `verify that insertExpense inserts an expense`(): Unit = runBlockingTest {
+    fun `verify that insertExpense inserts an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         val expenseEntity = expenseModelMapper.mapFromModel(expense)
         expenseContract.insertExpense(expense)
@@ -54,7 +54,7 @@ public class ExpenseContractImplTest {
     }
 
     @Test
-    public fun `verify that updateExpense updates an expense`(): Unit = runBlockingTest {
+    fun `verify that updateExpense updates an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         val expenseEntity = expenseModelMapper.mapFromModel(expense)
         expenseContract.updateExpense(expense)
@@ -62,7 +62,7 @@ public class ExpenseContractImplTest {
     }
 
     @Test
-    public fun `verify that delete expense deletes an expense`(): Unit = runBlockingTest {
+    fun `verify that delete expense deletes an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         expenseContract.deleteExpense(expense)
         verify(expenseRepository).deleteExpense(expense.id)

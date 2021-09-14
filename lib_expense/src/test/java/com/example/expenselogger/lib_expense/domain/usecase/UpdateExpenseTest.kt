@@ -9,13 +9,13 @@ import org.junit.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 
-public class UpdateExpenseTest {
+internal class UpdateExpenseTest {
 
     private lateinit var expenseContract: ExpenseContract
     private lateinit var updateExpense: UpdateExpense
 
     @Before
-    public fun setup() {
+    fun setup() {
         expenseContract = mock()
         updateExpense = UpdateExpense(
             expenseContract,
@@ -24,7 +24,7 @@ public class UpdateExpenseTest {
     }
 
     @Test
-    public fun `verify that updateExpense usecase updates an expense`(): Unit = runBlockingTest {
+    fun `verify that updateExpense usecase updates an expense`(): Unit = runBlockingTest {
         val expense = DummyData.expense
         updateExpense.invoke(expense)
         verify(expenseContract).updateExpense(expense)

@@ -9,10 +9,10 @@ import org.junit.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-public class GetExpensesTest {
+internal class GetExpensesTest {
 
     @Test
-    public fun `verify that getExpenses usecase gets a list of expenses`(): Unit = runBlockingTest {
+    fun `verify that getExpenses usecase gets a list of expenses`(): Unit = runBlockingTest {
         val expenses = listOf(DummyData.expense)
         val expenseContract = mock<ExpenseContract>().apply {
             whenever(getExpenses()).thenReturn(expenses)
