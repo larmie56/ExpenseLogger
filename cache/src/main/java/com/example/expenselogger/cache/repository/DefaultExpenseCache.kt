@@ -20,7 +20,8 @@ internal class DefaultExpenseCache @Inject constructor(
         id: Long
     ): ExpenseCacheModel? = expenseDao.getExpense(id)
 
-    override suspend fun getExpenses(): List<ExpenseCacheModel> = expenseDao.getExpenses()
+    override suspend fun getExpenses(): List<ExpenseCacheModel> =
+        expenseDao.getExpenses()
 
     override suspend fun deleteExpense(id: Long) {
         expenseDao.deleteExpense(id)
