@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "expense")
-public data class ExpenseEntity(
+public data class ExpenseCacheModel(
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "amount")

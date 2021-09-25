@@ -1,6 +1,6 @@
 package com.example.expenselogger.lib_expense.domain.usecase
 
-import com.example.expenselogger.lib_expense.domain.contract.ExpenseContract
+import com.example.expenselogger.lib_expense.domain.contract.ExpenseRepository
 import com.example.expenselogger.lib_expense.domain.model.DummyData
 import com.example.expenselogger_test_utils.TestAsyncExecutor
 import kotlinx.coroutines.test.runBlockingTest
@@ -11,22 +11,22 @@ import org.mockito.kotlin.verify
 
 internal class UpdateExpenseTest {
 
-    private lateinit var expenseContract: ExpenseContract
+    private lateinit var expenseRepository: ExpenseRepository
     private lateinit var updateExpense: UpdateExpense
 
     @Before
     fun setup() {
-        expenseContract = mock()
+        expenseRepository = mock()
         updateExpense = UpdateExpense(
-            expenseContract,
+            expenseRepository,
             TestAsyncExecutor()
         )
     }
 
     @Test
-    fun `verify that updateExpense usecase updates an expense`(): Unit = runBlockingTest {
+    fun `verify that updateExpense usecase updates an expense`() = runBlockingTest {
         val expense = DummyData.expense
         updateExpense.invoke(expense)
-        verify(expenseContract).updateExpense(expense)
+        verify(expenseRepository).updateExpense(expense)
     }
 }

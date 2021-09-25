@@ -16,9 +16,9 @@ internal class ExpenseModelMapperTest {
     }
 
     @Test
-    fun `verify mapToModel maps to model`() {
-        val entity = DummyData.expenseEntity
-        val model = mapper.mapToModel(entity)
+    fun `when mapping from cache model, then the correct Expense is returned`() {
+        val entity = DummyData.expenseCacheModel
+        val model = mapper.mapToExpense(entity)
         assertThat(entity.name).isEqualTo(model.name)
         assertThat(entity.amount).isEqualTo(model.amount)
         assertThat(entity.date).isEqualTo(model.date.time)
@@ -26,9 +26,9 @@ internal class ExpenseModelMapperTest {
     }
 
     @Test
-    fun `verify mapFromModel maps to entity`() {
+    fun `when mapping from Expense, then the correct cache model is returned`() {
         val model = DummyData.expense
-        val entity = mapper.mapFromModel(model)
+        val entity = mapper.mapToCacheModel(model)
         assertThat(model.name).isEqualTo(entity.name)
         assertThat(model.amount).isEqualTo(entity.amount)
         assertThat(model.date).isEqualTo(Date(entity.date))
@@ -36,11 +36,13 @@ internal class ExpenseModelMapperTest {
     }
 
     @Test
-    fun `verify mapToModelList maps to model list`() {
-        val entities = listOf(DummyData.expenseEntity)
-        val models = mapper.mapToModelList(entities)
-        val expected = entities[0]
-        val actual = models[0]
+    fun `when mapping list of cache model, then the correct expense list is returned`() {
+        val cacheModelList = listOf(DummyData.expenseCacheModel)
+        val expenses = mapper.mapToExpenseList(cacheModelList)
+
+        val expected = cacheModelList[0]
+        val actual = expenses[0]
+
         assertThat(expected.name).isEqualTo(actual.name)
         assertThat(expected.amount).isEqualTo(actual.amount)
         assertThat(expected.date).isEqualTo(actual.date.time)
@@ -48,11 +50,13 @@ internal class ExpenseModelMapperTest {
     }
 
     @Test
-    fun `verify mapFromModelList maps to entity list`() {
-        val models = listOf(DummyData.expense)
-        val entities = mapper.mapFromModelList(models)
-        val expected = models[0]
-        val actual = entities[0]
+    fun `when mapping list of expenses, then the correct cache model list is returned`() {
+        val expenses = listOf(DummyData.expense)
+        val cacheModelList = mapper.mapToModelList(expenses)
+
+        val expected = expenses[0]
+        val actual = cacheModelList[0]
+
         assertThat(expected.name).isEqualTo(actual.name)
         assertThat(expected.amount).isEqualTo(actual.amount)
         assertThat(expected.date).isEqualTo(Date(actual.date))
