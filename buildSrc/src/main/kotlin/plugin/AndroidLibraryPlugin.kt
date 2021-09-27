@@ -31,6 +31,7 @@ class AndroidLibraryPlugin : BasePlugin() {
                 Library.junit,
                 Library.truth,
                 Library.mockito,
+                Library.mockitoInline,
                 Library.coroutinesTest
             )
             kapt(Library.daggerHiltCompiler)

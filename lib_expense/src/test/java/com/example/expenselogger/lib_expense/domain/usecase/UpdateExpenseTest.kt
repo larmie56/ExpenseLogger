@@ -6,24 +6,27 @@ import com.example.expenselogger_test_utils.TestAsyncExecutor
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mockito.verify
 import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
 
-internal class DeleteExpenseTest {
+internal class UpdateExpenseTest {
 
     private lateinit var expenseRepository: ExpenseRepository
-    private lateinit var deleteExpense: DeleteExpense
+    private lateinit var updateExpense: UpdateExpense
 
     @Before
     fun setup() {
         expenseRepository = mock()
-        deleteExpense = DeleteExpense(expenseRepository, TestAsyncExecutor())
+        updateExpense = UpdateExpense(
+            expenseRepository,
+            TestAsyncExecutor()
+        )
     }
 
     @Test
-    fun `verify that deleteExpense usecase deletes an expense`() = runBlockingTest {
+    fun `verify that updateExpense usecase updates an expense`() = runBlockingTest {
         val expense = DummyData.expense
-        deleteExpense.invoke(expense.id)
-        verify(expenseRepository).deleteExpense(expense.id)
+        updateExpense.invoke(expense)
+        verify(expenseRepository).updateExpense(expense)
     }
 }

@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.expenselogger.cache.dao.ExpenseDao
-import com.example.expenselogger.cache.entity.ExpenseEntity
+import com.example.expenselogger.cache.entity.ExpenseCacheModel
 
-@Database(entities = [ExpenseEntity::class], version = 1, exportSchema = false)
+@Database(entities = [ExpenseCacheModel::class], version = 1, exportSchema = false)
 internal abstract class ExpenseDatabase : RoomDatabase() {
 
     abstract val expenseDao: ExpenseDao

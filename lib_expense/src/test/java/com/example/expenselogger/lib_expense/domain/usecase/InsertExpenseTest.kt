@@ -9,21 +9,21 @@ import org.junit.Test
 import org.mockito.Mockito.verify
 import org.mockito.kotlin.mock
 
-internal class DeleteExpenseTest {
+internal class InsertExpenseTest {
 
     private lateinit var expenseRepository: ExpenseRepository
-    private lateinit var deleteExpense: DeleteExpense
+    private lateinit var insertExpense: InsertExpense
 
     @Before
     fun setup() {
         expenseRepository = mock()
-        deleteExpense = DeleteExpense(expenseRepository, TestAsyncExecutor())
+        insertExpense = InsertExpense(expenseRepository, TestAsyncExecutor())
     }
 
     @Test
-    fun `verify that deleteExpense usecase deletes an expense`() = runBlockingTest {
+    fun `verify that insertExpense usecase inserts an expense`() = runBlockingTest {
         val expense = DummyData.expense
-        deleteExpense.invoke(expense.id)
-        verify(expenseRepository).deleteExpense(expense.id)
+        insertExpense.invoke(expense)
+        verify(expenseRepository).insertExpense(expense)
     }
 }

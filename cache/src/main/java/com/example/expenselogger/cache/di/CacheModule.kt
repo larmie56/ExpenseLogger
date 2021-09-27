@@ -3,8 +3,8 @@ package com.example.expenselogger.cache.di
 import android.content.Context
 import com.example.expenselogger.cache.ExpenseDatabase
 import com.example.expenselogger.cache.dao.ExpenseDao
-import com.example.expenselogger.cache.repository.ExpenseRepository
-import com.example.expenselogger.cache.repository.ExpenseRepositoryImpl
+import com.example.expenselogger.cache.repository.DefaultExpenseCache
+import com.example.expenselogger.cache.repository.ExpenseCache
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 internal interface CacheModule {
 
     @get:Binds
-    val ExpenseRepositoryImpl.expenseRepository: ExpenseRepository
+    val DefaultExpenseCache.expenseCache: ExpenseCache
 
     companion object {
         @[Provides Singleton]

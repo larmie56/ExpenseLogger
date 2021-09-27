@@ -1,6 +1,6 @@
 package com.example.expenselogger.lib_expense.domain.usecase
 
-import com.example.expenselogger.lib_expense.domain.contract.ExpenseContract
+import com.example.expenselogger.lib_expense.domain.contract.ExpenseRepository
 import com.example.expenselogger.lib_expense.domain.model.DummyData
 import com.example.expenselogger_test_utils.TestAsyncExecutor
 import com.google.common.truth.Truth.assertThat
@@ -9,12 +9,12 @@ import org.junit.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-public class GetExpenseTest {
+internal class GetExpenseTest {
 
     @Test
-    public fun `verify that getExpense usecase gets an expense`(): Unit = runBlockingTest {
+    fun `verify that getExpense usecase gets an expense`() = runBlockingTest {
         val expense = DummyData.expense
-        val expenseContract = mock<ExpenseContract>().apply {
+        val expenseContract = mock<ExpenseRepository>().apply {
             whenever(getExpense(0)).thenReturn(expense)
         }
         val getExpense = GetExpense(expenseContract, TestAsyncExecutor())
