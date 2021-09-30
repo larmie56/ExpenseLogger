@@ -5,5 +5,6 @@ include(
     ":executor",
     ":test_utils",
     ":cache",
-    ":edit_expense"
+    ":edit_expense",
+    ":lib_ui_component"
 )
