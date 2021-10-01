@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <TextView
+        android:id="@+id/text_expense_entry_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name_of_expense_entry"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="@dimen/edit_expense_margin_top"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+        <EditText
+            android:id="@+id/edit_expense_entry_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceBody1"
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@drawable/enter_field_bg"
+            android:padding="@dimen/enter_field_padding"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/text_expense_entry_name" />
+
+
+    <TextView
+        android:id="@+id/text_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/amount"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="@dimen/margin_large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toBottomOf="@id/edit_expense_entry_name"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+    <EditText
+        android:id="@+id/edit_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceBody1"
+        android:textColor="@color/primary_text"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/enter_field_bg"
+        android:padding="@dimen/enter_field_padding"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/text_amount" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="@dimen/margin_large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toBottomOf="@id/edit_amount"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+    <EditText
+        android:id="@+id/edit_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceBody1"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/enter_field_bg"
+        android:padding="@dimen/enter_field_padding"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/text_date" />
+
+    <TextView
+        android:id="@+id/text_additional_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/additional_info"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="@dimen/margin_large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toBottomOf="@id/edit_date"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+    <EditText
+        android:id="@+id/edit_additional_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceBody1"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/enter_field_bg"
+        android:padding="@dimen/enter_field_padding"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/text_additional_info" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_save"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textSize="15sp"
+        app:strokeColor="@color/red_D7304D"
+        android:background="@color/red_D7304D"
+        app:strokeWidth="2dp"
+        app:layout_constraintTop_toTopOf="@id/button_discard"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toStartOf="@id/button_discard"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_discard"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/discard"
+        android:textColor="@color/primary_text"
+        android:textSize="15sp"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="8dp"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="@color/red_D7304D"
+        android:layout_marginTop="@dimen/button_margin_top"
+        app:strokeWidth="2dp"
+        app:layout_constraintTop_toBottomOf="@id/edit_additional_info"
+        app:layout_constraintStart_toEndOf="@id/button_save"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/guideline_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/guideline_margin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

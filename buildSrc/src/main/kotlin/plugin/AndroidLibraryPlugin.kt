@@ -25,7 +25,8 @@ class AndroidLibraryPlugin : BasePlugin() {
         get() = {
             implementation(
                 Library.daggerHiltAndroid,
-                Library.coroutines
+                Library.coroutines,
+                Library.material,
             )
             testImplementation(
                 Library.junit,
