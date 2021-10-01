@@ -6,5 +6,6 @@ include(
     ":test_utils",
     ":cache",
     ":edit_expense",
-    ":lib_ui_component"
+    ":lib_ui_component",
+    ":home"
 )
