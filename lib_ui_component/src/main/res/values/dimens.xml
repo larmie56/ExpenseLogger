@@ -8,4 +8,6 @@
     <dimen name="margin_normal">16dp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="padding_normal">8dp</dimen>
+    <dimen name="divider_height">2dp</dimen>
+    <dimen name="divider_top_margin">16dp</dimen>
 </resources>
