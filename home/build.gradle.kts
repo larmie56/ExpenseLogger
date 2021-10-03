@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation(project(Project.libUiComponent))
+    implementation(project(Project.libSharedUiRes))
 }

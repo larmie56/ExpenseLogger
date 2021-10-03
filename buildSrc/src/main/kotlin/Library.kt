@@ -68,5 +68,5 @@ object Project {
     const val testUtils: String = ":test_utils"
     const val cache: String = ":cache"
     const val editExpense = ":edit_expense"
-    const val libUiComponent = ":lib_ui_component"
+    const val libSharedUiRes = ":lib_shared_ui_res"
 }

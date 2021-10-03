@@ -32,7 +32,6 @@ class FeatureModulePlugin : BasePlugin() {
                 Library.coreKtx,
                 Library.appCompat,
                 Library.recyclerView,
-                Library.coroutines,
                 Library.fragment,
                 Library.viewModel
             )

@@ -10,4 +10,7 @@
     <dimen name="padding_normal">8dp</dimen>
     <dimen name="divider_height">2dp</dimen>
     <dimen name="divider_top_margin">16dp</dimen>
+    <dimen name="recycler_padding_bottom">24dp</dimen>
+    <dimen name="recycler_padding_horizontal">16dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
 </resources>
