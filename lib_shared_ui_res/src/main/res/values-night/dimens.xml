@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="match_constraint">0dp</dimen>
     <dimen name="guideline_margin">16dp</dimen>
     <dimen name="edit_expense_margin_top">24dp</dimen>
     <dimen name="button_margin_top">30dp</dimen>
@@ -13,4 +14,10 @@
     <dimen name="recycler_padding_bottom">24dp</dimen>
     <dimen name="recycler_padding_horizontal">16dp</dimen>
     <dimen name="fab_size">56dp</dimen>
+    <dimen name="button_outline_stroke_width">2dp</dimen>
+    <dimen name="corner_radius">8dp</dimen>
+
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_medium">15sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
 </resources>

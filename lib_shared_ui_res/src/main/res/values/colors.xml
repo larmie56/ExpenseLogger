@@ -12,8 +12,9 @@
     <color name="divider_bg">#48636389</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
-    <color name="red_D7304D">#D7304D</color>
-    <color name="pink_CD4D67">#CD4D67</color>
-    <color name="orange_FB8D86">#FB8D86</color>
-    <color name="bright_orange_FCA74A">#FCA74A</color>
+    <color name="button_ripple_color">#33AAAAAA</color>
+    <color name="red_500">#D7304D</color>
+    <color name="red_200">#CD4D67</color>
+    <color name="pink_200">#FB8D86</color>
+    <color name="orange_300">#FCA74A</color>
 </resources>

@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/text_expense_entry_date"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         android:textColor="@color/primary_text"
         android:layout_marginTop="@dimen/margin_normal"
@@ -21,10 +21,10 @@
 
     <TextView
         android:id="@+id/text_expense_entry_name"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         android:textColor="@color/secondary_text"
-        android:textSize="15sp"
+        android:textSize="@dimen/text_size_medium"
         android:layout_marginTop="@dimen/margin_normal"
         android:layout_marginStart="@dimen/margin_normal"
         app:layout_constraintTop_toBottomOf="@id/text_expense_entry_date"
@@ -34,11 +34,11 @@
 
     <TextView
         android:id="@+id/text_expense_entry_amount"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         android:textColor="@color/secondary_text"
         android:layout_marginStart="@dimen/margin_normal"
-        android:textSize="15sp"
+        android:textSize="@dimen/text_size_medium"
         app:layout_constraintTop_toTopOf="@id/text_expense_entry_name"
         app:layout_constraintStart_toEndOf="@id/guideline_amount"
         app:layout_constraintEnd_toEndOf="parent"

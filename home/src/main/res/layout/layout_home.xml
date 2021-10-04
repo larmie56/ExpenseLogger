@@ -26,6 +26,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:theme="@style/Theme.MaterialComponents"
         android:src="@drawable/ic_add"
-        android:backgroundTint="@color/bright_orange_FCA74A"
+        android:backgroundTint="@color/red_200"
         android:contentDescription="@string/add_expense" />
 </androidx.constraintlayout.widget.ConstraintLayout>
