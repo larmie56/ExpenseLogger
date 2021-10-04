@@ -4,5 +4,8 @@ include(
     ":lib_expense",
     ":executor",
     ":test_utils",
-    ":cache"
+    ":cache",
+    ":edit_expense",
+    ":lib_shared_ui_res",
+    ":home"
 )

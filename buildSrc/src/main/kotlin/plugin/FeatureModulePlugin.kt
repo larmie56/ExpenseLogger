@@ -24,7 +24,16 @@ class FeatureModulePlugin : BasePlugin() {
         get() = {
             implementation(
                 Library.daggerHiltAndroid,
-                Library.coroutines
+                Library.coroutines,
+                Library.constraintLayout,
+                Library.material,
+                Library.navigationFragmentKtx,
+                Library.navigationUiKtx,
+                Library.coreKtx,
+                Library.appCompat,
+                Library.recyclerView,
+                Library.fragment,
+                Library.viewModel
             )
             kapt(Library.daggerHiltCompiler)
         }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name_of_expense_entry">Name of expense entry</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="additional_info">Additional info (Optional)</string>
+    <string name="save">Save</string>
+    <string name="discard">Discard</string>
+</resources>
