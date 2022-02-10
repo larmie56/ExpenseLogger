@@ -12,7 +12,6 @@ object Library {
         "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
     const val room: String = "androidx.room:room-ktx:${Version.room}"
     const val roomCompiler: String = "androidx.room:room-compiler:${Version.room}"
-    const val androidxJUnit: String = "androidx.test.ext:junit:${Version.androidxJUnit}"
     const val espresso: String = "androidx.test.espresso:espresso-core:${Version.espresso}"
     const val viewModel: String =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
