@@ -1,7 +1,6 @@
-package com.example.expenselogger.lib_expense.domain.contract
+package com.example.expenselogger.lib_expense.data.impl
 
 import com.example.expenselogger.cache.repository.ExpenseCache
-import com.example.expenselogger.lib_expense.data.impl.DefaultExpenseRepository
 import com.example.expenselogger.lib_expense.data.mapper.ExpenseModelMapper
 import com.example.expenselogger.lib_expense.domain.model.DummyData
 import com.google.common.truth.Truth.assertThat
